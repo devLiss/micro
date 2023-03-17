@@ -17,7 +17,6 @@ export class UsersService {
     user.name = createUserDto.name;
     user.lastName = createUserDto.lastName;
     user.email = createUserDto.email;
-
     return this.usersRepository.save(user);
   }
 
