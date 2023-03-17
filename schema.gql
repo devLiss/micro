@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type GroupEntity {
+  """Example field (placeholder)"""
+  id: String!
+
+  """Example field (placeholder)"""
+  name: String!
+  users: [UserEntity!]!
+}
+
+type UserEntity {
+  """Example field (placeholder)"""
+  id: String!
+
+  """Example field (placeholder)"""
+  name: String!
+
+  """Example field (placeholder)"""
+  lastName: String!
+
+  """Example field (placeholder)"""
+  email: String!
+  groups: [GroupEntity!]!
+  friends: [UserEntity!]!
+}
+
+type Query {
+  findAllUsers: [UserEntity!]!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): UserEntity!
+}
+
+input CreateUserInput {
+  """Name"""
+  name: String!
+
+  """Lastname"""
+  lastName: String!
+
+  """Email"""
+  email: String!
+}
