@@ -8,8 +8,7 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    @InjectRepository(User) private usersRepository: Repository<User>,
   ) {}
 
   create(createUserDto: CreateUserDto) {
@@ -35,8 +34,8 @@ export class UsersService {
     return `This action updates a #${id} user`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  remove(id: string) {
+    return this.usersRepository.delete(id);
   }
 
   addFriend(id: string, friendId: string) {}

@@ -5,14 +5,10 @@ import { UserResolver } from './gateway/users.resolver';
 import { GroupsResolver } from './gateway/groups.resolver';
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from '@app/shared/entities/user.entity';
-import { Group } from '@app/shared/entities/group.entity';
 import { DbModule } from '@app/shared/modules/db.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User, Group]),
     DbModule,
     ConfigModule.forRoot({ isGlobal: true, envFilePath: './.env' }),
     GraphQLModule.forRoot<ApolloDriverConfig>({

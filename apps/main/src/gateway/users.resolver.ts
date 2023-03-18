@@ -17,6 +17,7 @@ export class UserResolver {
   @Mutation(() => UserEntity, { name: 'createUser' })
   createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
     console.log('mutation');
+    console.log('DTO => ', createUserInput);
     return this.userQueue.send({ cmd: 'createUser' }, { createUserInput });
   }
 }
